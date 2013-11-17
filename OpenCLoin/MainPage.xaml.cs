@@ -78,17 +78,17 @@ namespace OpenCLoin
         public async Task<string> GetReceiveAddress()
         {
             WebClient c = new WebClient();
-            string jsonBalance = HttpGet("https://coinbase.com/api/v1/account/receive_address?api_key=YOUR_API_KEY");
+            string jsonBalance = HttpGet2("https://coinbase.com/api/v1/account/receive_address?api_key=YOUR_API_KEY");
             JObject o = JObject.Parse(jsonBalance);
             string amount = o["address"];
             return "asd";
         }
 
         //Get coin address
-        public string GetBitcoinAddress()
+        public async Task<string> GetBitcoinAddress()
         {
             WebClient c = new WebClient();
-            string jsonBalance = HttpGet("https://coinbase.com/api/v1/addresses?api_key=YOUR_API_KEY");
+            string jsonBalance = HttpGet2("https://coinbase.com/api/v1/addresses?api_key=YOUR_API_KEY");
             JObject o = JObject.Parse(jsonBalance);
             string amount = o["address"];
             return "asd";
