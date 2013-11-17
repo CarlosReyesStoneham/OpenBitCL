@@ -49,8 +49,8 @@
         
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <Image Source="Assets/legit.png"></Image>
-            <Button Content="Sell" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Sell_Click" Margin="0,0,0,507"/>
-            <Button Content="Buy" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Buy_Click" Margin="0,100,0,407"/>
+            <Button Content="Login" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Login_Click" Margin="0,0,0,507"/>
+            <Button Content="Balance" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Balance_Click" Margin="0,100,0,407"/>
             <Button Content="Account" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Account_Click" Margin="0,200,0,307"/>
             <Button Content="Pay" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Pay_Click" Margin="0,300,0,207"/>
             <Button Content="Analyze" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Analyze_Click" Margin="0,400,0,107"/>

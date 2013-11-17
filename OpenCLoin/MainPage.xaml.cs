@@ -9,15 +9,15 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using OpenCLoin.Resources;
 
-using System.Net.WebResponse;
-using System.Net.HttpWebResponse;
+//using System.Net.WebResponse;
+//using System.Net.HttpWebResponse;
 using System.IO;
 
 //JSON parse
-using System.Collections.Generic;
-using System.Linq;
+//using System.Collections.Generic;
+//using System.Linq;
 using System.Text;
-using System.Net;
+//using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
@@ -38,22 +38,28 @@ namespace OpenCLoin
             //BuildLocalizedApplicationBar();
         }
 
-        private void Sell_Click(object sender, RoutedEventArgs e)
+        string key;
+        private async void Login_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Sell.xaml", UriKind.Relative));
-            MessageBox.Show("Sell");
+            //NavigationService.Navigate(new Uri("/Sell.xaml", UriKind.Relative));
+            var client = new HttpClient();
+            //Textbox for user creds
+            key = await client.GetStringAsync("http://lokil.egr.duke.edu:1423");
+            MessageBox.Show("Successful Login");
         }
 
 
-        private void Buy_Click(object sender, RoutedEventArgs e)
+        private void Balance_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Buy");
+            MessageBox.Show("Balance: " + GetAnything("amount", "account/balance"));
+            MessageBox.Show("Currency: " + GetAnything("currency", "account/balance"));
         }
 
 
         private void Account_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Account");
+            //MessageBox.Show("Address: " + GetBitcoinAddress());
+            MessageBox.Show("Receive Address: "+ GetReceiveAddress());
         }
 
 
@@ -74,42 +80,39 @@ namespace OpenCLoin
             MessageBox.Show("Settings");
         }
 
-
         //Gets Receive Address
         public async Task<string> GetReceiveAddress()
         {
             var client = new HttpClient();
-            string returnString = await client.GetStringAsync("https://coinbase.com/api/v1/account/receive_address?api_key=YOUR_API_KEY");
+            string returnString = await client.GetStringAsync("https://coinbase.com/api/v1/account/receive_address?api_key="+key);
 
             JObject o = JObject.Parse(returnString);
             string amount = o["address"].ToString();
-            return "asd";
+            return amount;
+        }
+
+        public async Task<string> GetAnything(string jsonString, string place)
+        {
+            var client = new HttpClient();
+            string returnString = await client.GetStringAsync("https://coinbase.com/api/v1/" + place + "?api_key=" + key);
+
+            JObject o = JObject.Parse(returnString);
+            string amount = o[jsonString].ToString();
+            return amount;
         }
 
         //Get coin address
-        public async Task<string> GetBitcoinAddress()
-        {
-            var client = new HttpClient();
-            string returnString = await client.GetStringAsync("https://coinbase.com/api/v1/account/receive_address?api_key=YOUR_API_KEY");
-            JObject o = JObject.Parse(returnString);
-            string amount = o["address"].ToString();
-            return "asd";
-        }
-
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
+        //public async Task<string> GetBitcoinAddress()
         //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
-
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
-
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
+          //  var client = new HttpClient();
+            //string returnString = await client.GetStringAsync("https://coinbase.com/api/v1/account/addresses?api_key="+key);
+            //JObject o = JObject.Parse(returnString);
+            //string amount = o["address"].ToString();
+            //return "asd";
         //}
+        
+
+
+
     }
 }
