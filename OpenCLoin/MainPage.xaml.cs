@@ -24,6 +24,7 @@ namespace OpenCLoin
 
         private void Sell_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new Uri("/Sell.xaml", UriKind.Relative));
             MessageBox.Show("Sell");
         }
 
