@@ -21,6 +21,7 @@ using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 
 
@@ -77,33 +78,23 @@ namespace OpenCLoin
         //Gets Receive Address
         public async Task<string> GetReceiveAddress()
         {
-            WebClient c = new WebClient();
-            string jsonBalance = HttpGet2("https://coinbase.com/api/v1/account/receive_address?api_key=YOUR_API_KEY");
-            JObject o = JObject.Parse(jsonBalance);
-            string amount = o["address"];
+            var client = new HttpClient();
+            string returnString = await client.GetStringAsync("https://coinbase.com/api/v1/account/receive_address?api_key=YOUR_API_KEY");
+
+            JObject o = JObject.Parse(returnString);
+            string amount = o["address"].ToString();
             return "asd";
         }
 
         //Get coin address
         public async Task<string> GetBitcoinAddress()
         {
-            WebClient c = new WebClient();
-            string jsonBalance = HttpGet2("https://coinbase.com/api/v1/addresses?api_key=YOUR_API_KEY");
-            JObject o = JObject.Parse(jsonBalance);
-            string amount = o["address"];
+            var client = new HttpClient();
+            string returnString = await client.GetStringAsync("https://coinbase.com/api/v1/account/receive_address?api_key=YOUR_API_KEY");
+            JObject o = JObject.Parse(returnString);
+            string amount = o["address"].ToString();
             return "asd";
         }
-
-        string urlText;
-
-        public async void HttpGet2(string url)
-        {
-            var client = new HttpClient();
-            var data = await client.GetStringAsync(url);
-            urlText = data;
-        }
-
-
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
