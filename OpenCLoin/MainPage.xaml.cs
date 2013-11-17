@@ -9,6 +9,21 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using OpenCLoin.Resources;
 
+using System.Net.WebResponse;
+using System.Net.HttpWebResponse;
+using System.IO;
+
+//JSON parse
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Net;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Net.Http;
+
+
+
 namespace OpenCLoin
 {
     public partial class MainPage : PhoneApplicationPage
@@ -57,6 +72,38 @@ namespace OpenCLoin
         {
             MessageBox.Show("Settings");
         }
+
+
+        //Gets Receive Address
+        public async Task<string> GetReceiveAddress()
+        {
+            WebClient c = new WebClient();
+            string jsonBalance = HttpGet("https://coinbase.com/api/v1/account/receive_address?api_key=YOUR_API_KEY");
+            JObject o = JObject.Parse(jsonBalance);
+            string amount = o["address"];
+            return "asd";
+        }
+
+        //Get coin address
+        public string GetBitcoinAddress()
+        {
+            WebClient c = new WebClient();
+            string jsonBalance = HttpGet("https://coinbase.com/api/v1/addresses?api_key=YOUR_API_KEY");
+            JObject o = JObject.Parse(jsonBalance);
+            string amount = o["address"];
+            return "asd";
+        }
+
+        string urlText;
+
+        public async void HttpGet2(string url)
+        {
+            var client = new HttpClient();
+            var data = await client.GetStringAsync(url);
+            urlText = data;
+        }
+
+
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()

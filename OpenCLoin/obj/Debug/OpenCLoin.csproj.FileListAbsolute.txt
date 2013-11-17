@@ -17,3 +17,4 @@ c:\users\carlos\documents\visual studio 2013\Projects\OpenCLoin\OpenCLoin\obj\De
 c:\users\carlos\documents\visual studio 2013\Projects\OpenCLoin\OpenCLoin\obj\Debug\OpenCLoin.dll
 c:\users\carlos\documents\visual studio 2013\Projects\OpenCLoin\OpenCLoin\obj\Debug\OpenCLoin.pdb
 c:\users\carlos\documents\visual studio 2013\Projects\OpenCLoin\OpenCLoin\obj\Debug\XapCacheFile.xml
+c:\users\carlos\documents\visual studio 2013\Projects\OpenCLoin\OpenCLoin\obj\Debug\Sell.g.cs
