@@ -22,6 +22,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 
 
@@ -33,7 +34,7 @@ namespace OpenCLoin
         public MainPage()
         {
             InitializeComponent();
-
+            //LayoutRoot.Background = new SolidColorBrush(Color.FromArgb(255, 100, 100, 100));
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -56,28 +57,29 @@ namespace OpenCLoin
         }
 
 
-        private void Account_Click(object sender, RoutedEventArgs e)
+        private void Account_Click(object sender, RoutedEventArgs e) //maybe should be renamed receive address?
         {
             //MessageBox.Show("Address: " + GetBitcoinAddress());
             MessageBox.Show("Receive Address: "+ GetReceiveAddress());
         }
 
 
-        private void Pay_Click(object sender, RoutedEventArgs e)
+        private void Pay_Click(object sender, RoutedEventArgs e) //this is sell, so display how the conversion from bitcoin to whatever currency user is set to
         {
             MessageBox.Show("Pay");
+            MessageBox.Show("Conversion to USD: " + GetAnything("btc_to_usd", "currencies/exchange_rates"));
         }
 
 
         private void Analyze_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Analyze");
+            MessageBox.Show("Analyze"); //somehow place Assets/chart.png here, I think we have to do this in the xaml file.  I tried using picturebox but that doesn't seem to work, missing references???
         }
 
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Settings");
+            MessageBox.Show("Settings"); //I don't actually know what we need to do here...set currency?
         }
 
         //Gets Receive Address
