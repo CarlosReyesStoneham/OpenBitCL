@@ -22,9 +22,39 @@ namespace OpenCLoin
             //BuildLocalizedApplicationBar();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Sell_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("Sell");
+        }
 
+
+        private void Buy_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Buy");
+        }
+
+
+        private void Account_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Account");
+        }
+
+
+        private void Pay_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Pay");
+        }
+
+
+        private void Analyze_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Analyze");
+        }
+
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Settings");
         }
 
         // Sample code for building a localized ApplicationBar

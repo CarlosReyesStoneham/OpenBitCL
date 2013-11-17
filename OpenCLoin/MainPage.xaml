@@ -41,8 +41,8 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="OpenCLoin" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
-            <TextBlock Text="OpenCLoin Home" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="OpenCLMiner" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="OpenCLMiner Home" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -51,8 +51,8 @@
             <Button Content="Buy" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Buy_Click" Margin="0,100,0,407"/>
             <Button Content="Account" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Account_Click" Margin="0,200,0,307"/>
             <Button Content="Pay" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Pay_Click" Margin="0,300,0,207"/>
-            <Button Content="Analyze" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Button_Click_5" Margin="0,400,0,107"/>
-            <Button Content="Settings" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Button_Click_1" Margin="0,500,0,7"/>
+            <Button Content="Analyze" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Analyze_Click" Margin="0,400,0,107"/>
+            <Button Content="Settings" HorizontalAlignment="Left" Height="100" VerticalAlignment="Center" Width="233" Background="DarkBlue" Opacity="0.7" Click="Settings_Click" Margin="0,500,0,7"/>
 
         </Grid>
 
